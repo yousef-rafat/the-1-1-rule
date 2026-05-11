@@ -56,8 +56,6 @@ Normalization by the spectral norm preserves the condition number and effective 
 ## Citation
 Citation information will be added upon publication.
 
----
-
 ## License
 
 This project is licensed under the MIT License.
