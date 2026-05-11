@@ -4,9 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Paper](https://img.shields.io/badge/paper-TMLR%20submission-orange)]()
 
-&gt; **The 1:1 Rule:** For geometrically stable residual streams, the spectral norms of the MLP and attention pathways appear to require matching to within a factor of two.  
-&gt; When the spectral balance ratio $\rho = \|W_{\mathrm{mlp}}\|_2 / \|W_{\mathrm{attn}}\|_2$ drifts outside $[0.5, 2]$, the residual stream tends to collapse to effective rank $\approx 1$.
-
+- **The 1:1 Rule:** For geometrically stable residual streams, the spectral norms of the MLP and attention pathways appear to require matching to within a factor of two.
+- When the spectral balance ratio `ρ = ||W_mlp||₂ / ||W_attn||₂` drifts outside `[0.5, 2]`, the residual stream tends to collapse to effective rank `≈ 1`.
 ---
 
 ## Overview
