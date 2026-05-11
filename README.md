@@ -2,7 +2,7 @@
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Paper](https://img.shields.io/badge/paper%20submission-orange)]()
+[![Paper](https://img.shields.io/badge/paper-DOI-orange)]()
 
 - **The 1:1 Rule:** For geometrically stable residual streams, the spectral norms of the MLP and attention pathways appear to require matching to within a factor of two.
 - When the spectral balance ratio `ρ = ||W_mlp||₂ / ||W_attn||₂` drifts outside `[0.5, 2]`, the residual stream tends to collapse to effective rank `≈ 1`.
@@ -49,10 +49,9 @@ Normalization by the spectral norm preserves the condition number and effective 
 
 ### 3. Spectral Statistics
 
-- **Effective Rank:** $\\mathrm{erank}(C) = \\exp\\left(-\\sum_i p_i \\log p_i\\right)$ where $p_i = \\lambda_i / \\sum_j \\lambda_j$.
-- **Condition Number:** $\\kappa(C) = \\lambda_1 / \\lambda_d$.
-- **Spectral Balance Ratio:** $\\rho_\\ell = \\|W_{\\mathrm{mlp}}^{(\\ell)}\\|_2 / \\|W_{\\mathrm{attn}}^{(\\ell)}\\|_2$.
-
+- **Effective Rank:** $\mathrm{erank}(C) = \exp\left(-\sum_i p_i \log p_i\right)$ where $p_i = \lambda_i / \sum_j \lambda_j$.
+- **Condition Number:** $\kappa(C) = \lambda_1 / \lambda_d$.
+- **Spectral Balance Ratio:** $\rho_\ell = \lVert W_{\mathrm{mlp}}^{(\ell)} \rVert_2 \/\ \lVert W_{\mathrm{attn}}^{(\ell)} \rVert_2$
 ---
 
 ## Citation
