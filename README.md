@@ -56,17 +56,7 @@ Normalization by the spectral norm preserves the condition number and effective 
 ---
 
 ## Citation
-
-If you use this code or find the 1:1 Rule useful, please cite:
-
-```bibtex
-@article{gamaleldin2025oneone,
-  title={The 1:1 Rule: Lyapunov Analysis of Spectral Balance in Transformers},
-  author={Gamaleldin, Yousef},
-  journal={Transactions on Machine Learning Research},
-  year={2025}
-}
-```
+Citation information will be added upon publication.
 
 ---
 
