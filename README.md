@@ -28,7 +28,7 @@ This repository contains the official implementation for analyzing the spectral 
 git clone https://github.com/yousef-rafat/the-1-1-rule.git
 cd the-1-1-rule
 pip install -e .
-
+```
 ---
 
 ## Methodology
