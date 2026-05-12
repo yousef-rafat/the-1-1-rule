@@ -29,6 +29,20 @@ pip install -e .
 ```
 ---
 
+## Models
+
+The following models are analyzed in the paper:
+
+| Model | Params | Hidden Dim | Layers | Activation | Norm | Attention |
+|---|---|---|---|---|---|---|
+| Gemma-3-270M | 270M | 640 | 18 | SwiGLU | RMSNorm | GQA |
+| Gemma-2-2B | 2.2B | 2304 | 26 | GELU | RMSNorm | GQA |
+| Qwen2.5-0.5B | 500M | 896 | 24 | SwiGLU | RMSNorm | GQA |
+| Phi-2 | 2.7B | 2560 | 32 | GELU | LayerNorm | MHA |
+| SmolLM2-360M | 360M | 960 | 32 | SwiGLU | RMSNorm | GQA |
+
+---
+
 ## Methodology
 
 ### 1. Weight Extraction
