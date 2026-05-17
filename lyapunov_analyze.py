@@ -18,6 +18,8 @@ MODELS = [
     "Qwen/Qwen2.5-0.5B-Instruct",
     "microsoft/phi-2",
     "HuggingFaceTB/SmolLM2-360M",
+    "unsloth/Llama-3.2-1B-Instruct",
+    "EleutherAI/pythia-1.4b"
 ]
 
 

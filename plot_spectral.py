@@ -69,12 +69,16 @@ def extract_metrics(data):
 
 def plot_spectral_norms(processed, output_dir):
     """Figure 1: Spectral norms across layers."""
-    fig, axes = plt.subplots(2, 3, figsize=(16, 9))
+    n_models = len(processed)
+    n_cols = 3
+    n_rows = (n_models + n_cols - 1) // n_cols  # ceiling division
+    
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(16, 4.5 * n_rows))
     fig.suptitle("Spectral Pathway Norms Across Layers", fontsize=15, fontweight='bold', y=1.02)
 
     items = list(processed.items())
     for idx, (key, d) in enumerate(items):
-        ax = axes[idx // 3, idx % 3]
+        ax = axes[idx // n_cols, idx % n_cols]
         layers = np.arange(d["layers"])
 
         ax.semilogy(layers, d["mlp_sn"], 'o-', color='#e74c3c', label='||W_mlp||₂', markersize=4, linewidth=1.5)
@@ -93,8 +97,9 @@ def plot_spectral_norms(processed, output_dir):
         ax.text(0.02, 0.98, ratio_text, transform=ax.transAxes, fontsize=9,
                 verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 
-    for idx in range(len(items), 6):
-        axes[idx // 3, idx % 3].axis('off')
+    # Turn off unused subplots
+    for idx in range(n_models, n_rows * n_cols):
+        axes[idx // n_cols, idx % n_cols].axis('off')
 
     plt.tight_layout()
     plt.savefig(f"{output_dir}/fig1_spectral_norms.png", dpi=300, bbox_inches='tight')
