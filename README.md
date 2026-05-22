@@ -1,3 +1,4 @@
+
 # The 1:1 Rule: Lyapunov Analysis of Spectral Balance in Transformers
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -50,7 +51,9 @@ The following models are analyzed in the paper:
 | Pythia-1.4B | 1.4B | 2048 | 24 | GELU | LayerNorm | MHA |
 | SmolLM2-360M | 360M | 960 | 32 | SwiGLU | RMSNorm | GQA |
 
+
 ---
+<img width="7316" height="1432" alt="fig2_new" src="https://github.com/user-attachments/assets/27f741df-4a81-44d6-a190-54c62ffe5000" />  
 
 ## Methodology
 
