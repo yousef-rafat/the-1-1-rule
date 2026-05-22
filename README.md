@@ -1,16 +1,21 @@
+
 # The 1:1 Rule: Lyapunov Analysis of Spectral Balance in Transformers
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 - **The 1:1 Rule:** For geometrically stable residual streams, the spectral norms of the MLP and attention pathways appear to require matching to within a factor of two.
-- When the spectral balance ratio $\\rho = \\|W_{\\mathrm{mlp}}\\|_2 / \\|W_{\\mathrm{attn}}\\|_2$ drifts outside $[0.5, 2]$, the residual stream tends to collapse to effective rank $\\approx 1$.
+-  When the spectral balance ratio ρ = ‖W_mlp‖₂ / ‖W_attn‖₂ drifts outside [0.5, 2], the residual stream tends to collapse to effective rank ≈ 1.
 
 ---
 
 ## Overview
 
-This repository contains the official implementation for analyzing the spectral geometry of transformer residual streams via a Lyapunov covariance propagation framework. We analyze pretrained decoder-only language models and demonstrate that the **spectral balance ratio** $\\rho$ between the MLP effective matrix and the attention output projection is a strong predictor of geometric stability.
+This repository contains the official implementation for analyzing the spectral geometry of transformer residual streams via a Lyapunov covariance propagation framework. We analyze pretrained decoder-only language models and demonstrate that the **spectral balance ratio** $\\rho$ between the MLP effective matrix and the attention output projection is a strong predictor of geometric stability.  
+
+<br>
+ 
+<img width="4010" height="2800" alt="fig4_new" src="https://github.com/user-attachments/assets/328b43f1-a921-4540-849b-0f512848baef" />
 
 ### Key Features
 
@@ -46,7 +51,9 @@ The following models are analyzed in the paper:
 | Pythia-1.4B | 1.4B | 2048 | 24 | GELU | LayerNorm | MHA |
 | SmolLM2-360M | 360M | 960 | 32 | SwiGLU | RMSNorm | GQA |
 
+
 ---
+<img width="7316" height="1432" alt="fig2_new" src="https://github.com/user-attachments/assets/27f741df-4a81-44d6-a190-54c62ffe5000" />  
 
 ## Methodology
 
