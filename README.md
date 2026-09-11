@@ -80,7 +80,7 @@ Normalization by the spectral norm preserves the condition number and effective 
 
 ---
 
-### Synthetic validation
+## Synthetic validation
 
 To test whether the observed collapse is a consequence of spectral imbalance, we run a controlled random-matrix experiment.
 
