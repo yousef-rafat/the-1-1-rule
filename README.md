@@ -80,6 +80,25 @@ Normalization by the spectral norm preserves the condition number and effective 
 
 ---
 
+### Synthetic validation
+
+To test whether the observed collapse is a consequence of spectral imbalance, we run a controlled random-matrix experiment.
+
+We construct spiked MLP and attention matrices with correlated singular-vector bases and anti-aligned dominant directions, then sweep the spectral ratio
+
+$\rho_\ell = \lVert W_{\mathrm{mlp}} \rVert_2 \/\ \lVert W_{\mathrm{attn}} \rVert_2$.
+
+The same Lyapunov propagation is run for 24 layers.
+
+The result reproduces the observed bifurcation: balanced ratios (0.5 < ρ < 2) preserve high effective rank, while strongly imbalanced ratios lead to rank-1 collapse.
+
+As a control, we repeat the experiment with independent singular-vector bases. The bifurcation disappears and the behavior reverses, showing that the effect depends on the interaction between the two pathways rather than the spectral ratio alone.
+
+<br>
+
+<img width="1389" height="540" alt="sync_results" src="https://github.com/user-attachments/assets/6399ff7c-8fd5-4b71-b5cc-f0128ee87f9f" />
+
+
 ## Citation
 
 Citation information will be added upon publication.
