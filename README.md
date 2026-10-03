@@ -22,7 +22,7 @@ This repository contains the code for our experiments on the spectral geometry o
 - **Weight-only analysis:** The main analysis works directly from the model weights and does not require a dataset.
 - **Covariance propagation:** We propagate the covariance through the residual stream one layer at a time.
 - **Synthetic experiments:** Controlled random-matrix experiments let us test the proposed mechanism separately from the pretrained models.
-- **Multi-architecture:** Tested on Gemma, Qwen, Llama, Phi, Pythia, and SmolLM families.
+- **Multiple-architectures:** Tested on Gemma, Qwen, Llama, Phi, Pythia, and SmolLM families.
 - **Reproducible figures:** Scripts to regenerate all paper figures and tables.
 
 ---
@@ -90,7 +90,7 @@ $\rho_\ell = \lVert W_{\mathrm{mlp}} \rVert_2 \/\ \lVert W_{\mathrm{attn}} \rVer
 
 and apply the same Lyapunov propagation for 24 layers.
 
-Under anti-alignment, the system reproduces the observed bifurcation: ratios within $0.5 < \rho < 2$ maintain high effective rank, while strongly imbalanced ratios produce rank-1 collapse.
+With anti-aligned dominant directions, we see a similar transition: ratios within $0.5 < \rho < 2$ maintain high effective rank, while strongly imbalanced ratios produce rank-1 collapse.
 
 As a control, we repeat the experiment with independent singular-vector bases instead of the anti-aligned construction. In this case, the sharp transition largely disappears. This suggests that the relative orientation of the two pathways matters in addition to their spectral norms.
 
