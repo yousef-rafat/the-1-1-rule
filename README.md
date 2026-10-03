@@ -4,14 +4,14 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- **The 1:1 Rule:** For geometrically stable residual streams, the spectral norms of the MLP and attention pathways appear to require matching to within a factor of two.
--  When the spectral balance ratio ρ = ‖W_mlp‖₂ / ‖W_attn‖₂ drifts outside [0.5, 2], the residual stream tends to collapse to effective rank ≈ 1.
+-  Main observation: In the models we tested, the residual stream tends to remain stable when the spectral norms of the MLP and attention pathways are of similar magnitude.
+-  In our experiments, the residual stream often becomes increasingly concentrated in a single direction when this ratio moves outside roughly 0.5–2.
 
 ---
 
 ## Overview
 
-This repository contains the official implementation for analyzing the spectral geometry of transformer residual streams via a Lyapunov covariance propagation framework. We analyze pretrained decoder-only language models and demonstrate that the **spectral balance ratio** $\\rho$ between the MLP effective matrix and the attention output projection is a strong predictor of geometric stability.  
+This repository contains the code for our experiments on the spectral geometry of transformer residual streams. We analyze pretrained decoder-only language models and find that the **spectral balance ratio** $\\rho$ between the MLP effective matrix and the attention output projection is a strong predictor of geometric stability.  
 
 <br>
  
@@ -19,10 +19,10 @@ This repository contains the official implementation for analyzing the spectral 
 
 ### Key Features
 
-- **Zero-data analysis:** Inspect weight matrices directly without forward passes on data.
-- **Lyapunov iterator:** Propagate covariance through the residual stream layer-by-layer.
-- **Synthetic causal validation:** Controlled random-matrix experiments to test the 1:1 Rule independently of training data or architecture.
-- **Multi-architecture support:** Tested on Gemma, Qwen, Llama, Phi, Pythia, and SmolLM families (MHA, GQA, GELU, GeGLU, SwiGLU, RMSNorm, LayerNorm).
+- **Weight-only analysis:** The main analysis works directly from the model weights and does not require a dataset.
+- **Covariance propagation:** We propagate the covariance through the residual stream one layer at a time.
+- **Synthetic experiments:** Controlled random-matrix experiments let us test the proposed mechanism separately from the pretrained models.
+- **Multi-architecture:** Tested on Gemma, Qwen, Llama, Phi, Pythia, and SmolLM families.
 - **Reproducible figures:** Scripts to regenerate all paper figures and tables.
 
 ---
@@ -82,7 +82,7 @@ Normalization by the spectral norm preserves the condition number and effective 
 
 ## Synthetic validation
 
-To isolate the mechanism behind the observed 1:1 bifurcation, we construct spiked MLP and attention matrices with correlated singular-vector bases and anti-aligned dominant directions.
+We also test the effect with synthetic matrices. We construct spiked MLP and attention matrices with correlated singular-vector bases, while making their dominant directions anti-aligned.
 
 We sweep the spectral ratio
 
@@ -92,7 +92,7 @@ and apply the same Lyapunov propagation for 24 layers.
 
 Under anti-alignment, the system reproduces the observed bifurcation: ratios within $0.5 < \rho < 2$ maintain high effective rank, while strongly imbalanced ratios produce rank-1 collapse.
 
-As a control, we remove the anti-alignment using independent singular-vector bases. The bifurcation disappears, showing that spectral imbalance alone is insufficient and that the effect depends on the relative orientation of the two pathways.
+As a control, we repeat the experiment with independent singular-vector bases instead of the anti-aligned construction. In this case, the sharp transition largely disappears. This suggests that the relative orientation of the two pathways matters in addition to their spectral norms.
 
 <br>
 
